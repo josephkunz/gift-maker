@@ -10,6 +10,9 @@ u2 = User.create!(email: "user2@example.com", password: "password")
 puts 'Creating recipients...'
 
 john = Recipient.create!(name: 'John Doe', address: 'Mexikoplatz')
+oma = Recipient.create!(name: 'Oma', address: 'Münster')
+brother = Recipient.create!(name: 'Carl', address: 'Berlin')
+
 
 puts 'Creating gifts...'
 gift_attributes = [
@@ -21,6 +24,7 @@ gift_attributes = [
     recipient: john,
     user_id: u2.id
   },
+
   {
     title:         'Cookies',
     description:      'Christmas cookies',
@@ -28,7 +32,24 @@ gift_attributes = [
     occasion:  'Thank you',
     recipient: john,
     user_id: u2.id
+  },
 
+   {
+    title:         'Bilderrahmen &',
+    description:      'Oma Geburtstag, Familienbilder',
+    price:  'none',
+    occasion:  'Birthday',
+    recipient: oma,
+    user_id: u2.id
+  },
+
+  {
+    title:         'Bleistift',
+    description:      'Vernünftiger Stift fürs Studium, Gold',
+    price:  'none',
+    occasion:  'Christmas',
+    recipient: brother,
+    user_id: u2.id
   }
 ]
 Gift.create!(gift_attributes)
