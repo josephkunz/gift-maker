@@ -1,6 +1,6 @@
 class Gift < ApplicationRecord
-  belongs_to :recipient
-  belongs_to :user
+  belongs_to :recipient, optional: true
+  belongs_to :user, optional: true
   validates :title, presence: true, uniqueness: true
   validates :description, presence: true
   validates :price, presence: true
