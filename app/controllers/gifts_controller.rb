@@ -15,14 +15,14 @@ class GiftsController < ApplicationController
     @gift = Gift.new(gift_params)
     if @gift.save
       redirect_to gift_path(@gift)
+    end
   end
 
-end
 
 
+  private
 
-private
-
-def gift_params
-  params.require(:gift).permit(:id
+  def gift_params
+    params.require(:gift).permit(:title, :description, :price, :occasion)
+  end
 end
