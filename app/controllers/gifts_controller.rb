@@ -21,6 +21,14 @@ class GiftsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @gift.update(gift_params)
+    redirect_to gift_path(@gift)
+  end
+
   private
 
   def gift_params
