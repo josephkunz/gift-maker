@@ -22,10 +22,13 @@ class GiftsController < ApplicationController
   end
 
   def edit
+    @gift = Gift.new
   end
 
   def update
+    @gift = Gift.find(params[:id])
     @gift.update(gift_params)
+    @gift.save
     redirect_to gift_path(@gift)
   end
 

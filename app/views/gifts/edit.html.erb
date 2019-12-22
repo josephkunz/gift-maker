@@ -1,0 +1,7 @@
+<%= simple_form_for @gift do |f| %>
+  <%= f.input :title, label: 'Title:' %>
+  <%= f.input :description, label: 'Description:' %>
+  <%= f.input :price, label: 'Price:' %>
+  <%= f.input :occasion, label: 'Occasion:' %>
+  <%= f.submit "Update Present", class: "btn btn-success" %>
+<% end %>
