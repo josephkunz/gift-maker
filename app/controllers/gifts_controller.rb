@@ -1,10 +1,11 @@
 class GiftsController < ApplicationController
+  before_action :set_gift, only: [:show, :update, :destroy]
+
   def index
     @gifts = Gift.all
   end
 
   def show
-    @gift = Gift.find(params[:id])
   end
 
   def new
@@ -26,14 +27,12 @@ class GiftsController < ApplicationController
   end
 
   def update
-    @gift = Gift.find(params[:id])
     @gift.update(gift_params)
     @gift.save
     redirect_to gift_path(@gift)
   end
 
   def destroy
-    @gift = Gift.find(params[:id])
     @gift.destroy
     redirect_to gifts_path
   end
@@ -42,5 +41,9 @@ class GiftsController < ApplicationController
 
   def gift_params
     params.require(:gift).permit(:id, :title, :description, :price, :occasion)
+  end
+
+  def set_gift
+    @gift = Gift.find(params[:id])
   end
 end
