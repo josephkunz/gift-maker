@@ -32,6 +32,12 @@ class GiftsController < ApplicationController
     redirect_to gift_path(@gift)
   end
 
+  def destroy
+    @gift = Gift.find(params[:id])
+    @gift.destroy
+    redirect_to gifts_path
+  end
+
   private
 
   def gift_params
