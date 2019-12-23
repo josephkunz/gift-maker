@@ -1,7 +1,7 @@
 <h1>GIFTS</h1>
 
 <% @gifts.each do |gift| %>
-  <li><%= link_to gift.title, gift_path(gift.id) %></li>
+  <li><%= link_to gift.title, gift_path(gift.id) %> <%= link_to '🗑️', gift_path(gift.id), method: :delete,  data: { confirm: "Are you sure?" }  %></li>
 <% end %>
 
 <br>
