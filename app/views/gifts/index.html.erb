@@ -1,8 +1,19 @@
-<h1>GIFTS</h1>
+<div class="container">
+  <h1>GIFTS</h1>
+  <% @gifts.each do |gift| %>
+    <div class="card-trip">
+      <div class="card-trip-infos">
+        <div>
+    <h2><%= link_to gift.title, gift_path(gift.id) %></h2>
+    <%= link_to '🗑️', gift_path(gift.id), method: :delete,  data: { confirm: "Are you sure?" }, class: "card-trip-user avatar-bordered" %>
+          <p>Short description here!</p>
 
-<% @gifts.each do |gift| %>
-  <li><%= link_to gift.title, gift_path(gift.id) %> <%= link_to '🗑️', gift_path(gift.id), method: :delete,  data: { confirm: "Are you sure?" }  %></li>
-<% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
-<br>
-<%= link_to 'new gift', new_gift_path, class: "btn btn-success" %>
+  <br>
+  <%= link_to 'new gift', new_gift_path, class: "btn btn-success" %>
+  </div>
+</div>
